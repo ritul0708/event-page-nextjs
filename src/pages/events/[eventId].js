@@ -1,7 +1,9 @@
+import Head from 'next/head';
 import EventContent from "@/components/eventDetail/EventContent";
 import EventLogistics from "@/components/eventDetail/EventLogistics";
 import EventSummary from "@/components/eventDetail/EventSummary";
 import { getEventById, getFeaturedEvents } from "@/utils/api-utils";
+import Comments from '@/components/input/Comments';
 
 const EventDetailPage = ({ selectedEvent }) => {
 
@@ -16,6 +18,13 @@ const EventDetailPage = ({ selectedEvent }) => {
 
   return (
     <>
+      <Head>
+        <title>{selectedEvent.title}</title>
+        <meta
+          name='description'
+          content={selectedEvent.description}
+        />
+      </Head>
       <EventSummary title={selectedEvent.title} />
       <EventLogistics
         date={selectedEvent.date}
@@ -26,6 +35,7 @@ const EventDetailPage = ({ selectedEvent }) => {
       <EventContent>
         <p>{selectedEvent.description}</p>
       </EventContent>
+      <Comments eventId={selectedEvent.id} />
     </>
   )
 }
