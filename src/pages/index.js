@@ -1,7 +1,7 @@
 import EventList from "@/components/events/EventList";
 import { getFeaturedEvents } from "@/utils/api-utils";
 import Head from 'next/head';
-import NewsletterRegistration from '@/components/input/NewsletterRegistration';
+import NewsletterRegistration from '@/components/input/NewsLetterRegistration';
 
 const Home = ({ featuredEvents }) => {
   return (
